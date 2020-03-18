@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.encuestasudelp.util.EntityEncuesta
 import com.example.encuestasudelp.util.ListEncuestas
+import com.example.encuestasudelp.util.ListEncuestas.Companion.listStringIndex
 import kotlinx.android.synthetic.main.activity_misencuestas.*
 
 //mis encuestas
@@ -21,16 +22,22 @@ class SurveysActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_misencuestas)
       //  Lista2 = ListaEncuestas.devuelveListEncuestaString()
-        if(ListaEncuestas.devuelveListEncuesta().size>0){
+        if(ListaEncuestas.devuelveListEncuesta().size >0){
         val miAdaptador = ArrayAdapter<String> (this@SurveysActivity, android.R.layout.simple_list_item_1,ListaEncuestas.devuelveListEncuestaString())
 
         ltvMisEncuestas.adapter=miAdaptador
 
         ltvMisEncuestas.setOnItemClickListener { adapterView: AdapterView<*>, view1: View, position: Int, id: Long ->
             val itemSeleccionado = adapterView.getItemAtPosition(position)
-            Toast.makeText(
+            /*Toast.makeText(
                 this@SurveysActivity,
                 "$position $id $itemSeleccionado",
+                Toast.LENGTH_SHORT
+            ).show()*/
+             var index= listStringIndex[position]
+            Toast.makeText(
+                this@SurveysActivity,
+                "Seleccionaste el $index ",
                 Toast.LENGTH_SHORT
             ).show()
 

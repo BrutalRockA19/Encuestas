@@ -1,35 +1,17 @@
 package com.example.encuestasudelp.util
 
 import android.util.Log
+import com.example.encuestasudelp.util.ListUsers.Companion.usuario_registrado
 
 class ListEncuestas {
 
     companion object {
          val listaEncuesta = arrayListOf<EntityEncuesta>()
         private  val listString = arrayListOf<String>()
+          val listStringIndex = arrayListOf<String>()
     }
 
-    /*public fun agregarEncuesta(nombre:String,apellidoP:String,apellidoM:String,correo:String,genero:Int,viajado:Int,
-                               frecuencia:Int,experiencia:Int,ejecutiva:Boolean,economica:Boolean,promo:Boolean,servicio:String,mejora:String,ofertas:Boolean){
 
-        /* listaEncuesta.add(nombre)
-         listaEncuesta.add(apellidoP)
-         listaEncuesta.add(apellidoM)
-         listaEncuesta.add(correo)
-         listaEncuesta.add(genero.toString())
-         listaEncuesta.add(viajado.toString())
-         listaEncuesta.add(frecuencia.toString())
-         listaEncuesta.add(experiencia.toString())
-         listaEncuesta.add(ejecutiva.toString())
-         listaEncuesta.add(economica.toString())
-         listaEncuesta.add(servicio)
-         listaEncuesta.add(mejora)
-         listaEncuesta.add(ofertas.toString())*/
-
-        val encuestaR = EntityEncuesta(nombre,apellidoP,apellidoM,correo,genero,viajado,frecuencia,experiencia,ejecutiva,economica,promo,servicio,mejora,ofertas)
-        listaEncuesta.add(encuestaR)
-        Log.d("encuestasUDELP","$encuestaR")
-    } */
 
     public fun agregarEncuestaPRUEBA(encuestaR:EntityEncuesta): Int{
 
@@ -82,12 +64,16 @@ class ListEncuestas {
 
     public fun devuelveListEncuestaString(): Array<String> {
         listString.clear()
+        listStringIndex.clear()
+        var index = 0 //agregado
         for (entityEncuesta in listaEncuesta) {
-            listString.add(entityEncuesta.nombre)
-
+            if(entityEncuesta.user == usuario_registrado){// agregaste el if
+                listString.add(entityEncuesta.nombre)
+                //Esto lo agrege
+                listStringIndex.add(index.toString())
+            }
+            index ++// agregado
         }
-        Log.d("Test", listString[0])
-        Log.d("Ultimo", listString[listString.size -1])
         val elems = listString
         return elems.toTypedArray()
 

@@ -102,6 +102,7 @@ class DetailActivity : AppCompatActivity() {
             ofertas = "No quiero recibir ofertas y descuentos"
         }
         txvOfertasDescuentosDetalle.setText("$ofertas")
+        Log.d("Usuario",encuesta.user)
 
     }
 }

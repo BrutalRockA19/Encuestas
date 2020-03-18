@@ -35,7 +35,7 @@ class ListDelete : AppCompatActivity() {
                     "$position $id $itemSeleccionado",
                     Toast.LENGTH_SHORT
                 ).show()
-                miDialogo("Eleiminar a $itemSeleccionado",id.toInt()).show()
+                miDialogo("Eliminar a $itemSeleccionado",id.toInt()).show()
 
             }
         }
